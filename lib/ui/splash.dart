@@ -36,13 +36,14 @@ class _SplashState extends State<Splash> {
         LatLng(locationData.latitude!, locationData.longitude!);
 
     sharedPreferences.setDouble('latitude', locationData.latitude!);
-        sharedPreferences.setDouble('longitude', locationData.longitude!);
+    sharedPreferences.setDouble('longitude', locationData.longitude!);
 
-    
+    Future.delayed(
+        Duration(seconds: 1),
         () => Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (_) => const Mapbox()),
-            (route) => false);
+            (route) => false));
   }
 
   @override
