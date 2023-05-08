@@ -1,5 +1,4 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/material.dart';
 
 class Mapbox extends StatefulWidget {
   const Mapbox({super.key});
@@ -11,6 +10,8 @@ class Mapbox extends StatefulWidget {
 class _MapboxState extends State<Mapbox> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: SafeArea(child: Center(child: Text('gello World'),)),
+    );
   }
 }
