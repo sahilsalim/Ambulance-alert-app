@@ -1,12 +1,11 @@
 import 'dart:convert';
 
 import 'package:ambulance_alert_app/main.dart';
-import 'package:ambulance_alert_app/main_layout.dart';
 import 'package:ambulance_alert_app/util/directions_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
-
+import '../screen/map.dart';
 import '../file/hospitals.dart';
 
 class Splash extends StatefulWidget {
@@ -43,16 +42,18 @@ class _SplashState extends State<Splash> {
     sharedPreferences.setDouble('latitude', locationData.latitude!);
     sharedPreferences.setDouble('longitude', locationData.longitude!);
 
-    for (int i = 0; i < hospitals.length; i++) {
-      Map modifiedResponse = await getDirectionAPIResponse(currentLatLng, i);
-      saveDirectionAPIResponse(i, jsonEncode(modifiedResponse));
-    }
+    // for (int i = 0; i < hospitals.length; i++) {
+    //   Map modifiedResponse = await getDirectionAPIResponse(currentLatLng, i);
+    //   saveDirectionAPIResponse(i, jsonEncode(modifiedResponse));
+    // }
+    //  Map modifiedResponse = await getDirectionAPIResponse(currentLatLng, 0);
+    //   saveDirectionAPIResponse(0, jsonEncode(modifiedResponse));
 
     Future.delayed(
         const Duration(seconds: 1),
         () => Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => const MainLayout()),
+            MaterialPageRoute(builder: (context) => const MapScreen()),
             (route) => false));
   }
 
