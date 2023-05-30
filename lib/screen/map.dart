@@ -30,18 +30,20 @@ class _MapScreenState extends State<MapScreen> {
   _onStyleLoadedCallBack() async {}
 
   bool isSwitched = true;
-  var textValue = ' ON';
-  bool notify = false;
+  var textValueLeft = ' ON DUTY';
+  var textValueRight = ' ';
   void toggleSwitch(bool value) {
     if (isSwitched == true) {
       setState(() {
         isSwitched = false;
-        textValue = ' OFF';
+        textValueRight = ' OFF DUTY';
+        textValueLeft = '';
       });
     } else {
       setState(() {
         isSwitched = true;
-        textValue = ' ON';
+        textValueLeft = ' ON DUTY';
+        textValueRight = '';
       });
     }
   }
@@ -95,16 +97,25 @@ class _MapScreenState extends State<MapScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  '$textValue DUTY',
+                  textValueLeft,
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.w700),
                 ),
                 Switch(
                   value: isSwitched,
                   onChanged: toggleSwitch,
-                  activeColor: Colors.red.shade400,
-                  activeTrackColor: Colors.redAccent.shade100,
+                  activeColor: Colors.green.shade400,
+                  activeTrackColor: Colors.green.shade100,
+                  inactiveThumbColor: Colors.red.shade400,
+                  inactiveTrackColor:  Colors.redAccent.shade100,
+                  
                 ),
+                Text(
+                  textValueRight,
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w700),
+                ),
+
               ],
             ),
           ),

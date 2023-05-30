@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:ambulance_alert_app/View/Login_view.dart';
 import 'package:ambulance_alert_app/main.dart';
 import 'package:ambulance_alert_app/util/directions_handler.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class _SplashState extends State<Splash> {
         const Duration(seconds: 1),
         () => Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => const MapScreen()),
+            MaterialPageRoute(builder: (context) => const LoginView()),
             (route) => false));
   }
 

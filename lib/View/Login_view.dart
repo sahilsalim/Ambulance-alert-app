@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_application_2/constants/routes.dart';
+import '../constants/routes.dart';
 import '../firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:developer'as devtools show log;
